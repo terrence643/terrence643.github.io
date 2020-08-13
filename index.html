@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    html{
+        height: auto;
+        width: 100%;
+    }
+</style>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>MP_FINAL_FINAL</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</head>
+
+<body style="background-color: #b4b4af;background-size: cover;">
+       
+     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    
+     <script>
+     var firebaseConfig = {
+        apiKey: "AIzaSyDiD8DWQqxAr09m3hEVi4q-lLr3Axv1zws",
+        authDomain: "terrence-cai-mp1.firebaseapp.com",
+        databaseURL: "https://terrence-cai-mp1.firebaseio.com",
+        projectId: "terrence-cai-mp1",
+        storageBucket: "terrence-cai-mp1.appspot.com",
+        messagingSenderId: "192497593700",
+        appId: "1:192497593700:web:67099555474c534ff45e71",
+        measurementId: "G-PV24YKEZR7"
+    };
+    var defaultProject = firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    </script>
+    
+    
+
+    <div class="navbar">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link" href="#About" style="color: white;background-color: #7dbbb9;border-color: #dee2e6 #dee2e6 #fff;">About Me</a></li>
+            <li class="nav-item"><a class="nav-link" href="#Education" style="color: white;background-color: #7dbbb9;border-color: #dee2e6 #dee2e6 #fff;">Education</a></li>
+            <li class="nav-item"><a class="nav-link" href="#Projects" style="color: white;background-color: #7dbbb9;border-color: #dee2e6 #dee2e6 #fff;">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#Orgs" style="color: white;background-color: #7dbbb9;border-color: #dee2e6 #dee2e6 #fff;">Organizations</a></li>
+            <li class="nav-item"><a class="nav-link" href="#Contact" style="color: white;background-color: #7dbbb9;border-color: #dee2e6 #dee2e6 #fff;">Contact Me</a></li>
+        </ul>
+    </div>
+    <div class="container" id="Name" style="justify-content: center;display: flex;">
+        <h1 style="color: white;">Terrence Jake S. Cai</h1>
+       
+    </div>
+
+    <div class="container" id="About" style="box-shadow: 3px 3px 0px 0px black;background-color: #bad5dc;">
+        <h1>About Me</h1>
+        <div id="containerAbout">
+            <div id="textdivid"></div>
+            <div id="chart_profile"><img height="90%" width="100%" src="profile.jpg"style="border-radius: 50%;"></div>
+        </div>
+        
+    </div>
+    
+    <div class="container" id="Education" style="box-shadow: 3px 3px 0px 0px black;background-color: #bad5dc;">
+        <h1>My Education Background</h1>
+        <div id="Educ-list"></div>
+        
+    </div>
+
+    <div class="container" id="Projects" style="box-shadow: 3px 3px 0px 0px black;background-color: #bad5dc;">
+        <h1>My Projects</h1>
+        <div id="Proj-list"></div>
+    </div>
+
+    <div class="container" id="Orgs" style="box-shadow: 3px 3px 0px 0px black;background-color: #bad5dc;">
+        <h1>My Organizations</h1>
+
+        <div id="Org-list"></div>
+    </div>
+
+    <div class="container" id="Contact" style="box-shadow: 3px 3px 0px 0px black;background-color: #bad5dc;">
+        <h1>Contact Me</h1>
+        <div id="cont-list"></div>
+    </div>
+
+    <script src="GetDocument.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

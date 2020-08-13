@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    html{
+        height: auto;
+        width: 100%;
+    }
+</style>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>MP_FINAL_FINAL</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</head>
+
+<body style="background-color: #b4b4af;background-size: cover;">
+       
+     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    
+     <script>
+     var firebaseConfig = {
+        apiKey: "AIzaSyDiD8DWQqxAr09m3hEVi4q-lLr3Axv1zws",
+        authDomain: "terrence-cai-mp1.firebaseapp.com",
+        databaseURL: "https://terrence-cai-mp1.firebaseio.com",
+        projectId: "terrence-cai-mp1",
+        storageBucket: "terrence-cai-mp1.appspot.com",
+        messagingSenderId: "192497593700",
+        appId: "1:192497593700:web:67099555474c534ff45e71",
+        measurementId: "G-PV24YKEZR7"
+    };
+    var defaultProject = firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    </script>
+
+    <div id="Login">
+        <form id="logform">
+            <div class="logdiv"><input type="text" id="username" placeholder="Email"></div>
+            <div class="logdiv"><input type="password" id="pass" placeholder="Password"></div>
+            <button id="Logbutton" onclick="authentication()">Login</button>
+        </form>
+
+    </div>
+
+    <div id="Logged">
+    <div class="navbar">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link" href="#About" style="color: white;background-color: #7dbbb9;border-color: #dee2e6 #dee2e6 #fff;">About Me</a></li>
+            <li class="nav-item"><a class="nav-link" href="#Education" style="color: white;background-color: #7dbbb9;border-color: #dee2e6 #dee2e6 #fff;">Education</a></li>
+            <li class="nav-item"><a class="nav-link" href="#Projects" style="color: white;background-color: #7dbbb9;border-color: #dee2e6 #dee2e6 #fff;">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#Orgs" style="color: white;background-color: #7dbbb9;border-color: #dee2e6 #dee2e6 #fff;">Organizations</a></li>
+            <li class="nav-item"><a class="nav-link" href="#Contact" style="color: white;background-color: #7dbbb9;border-color: #dee2e6 #dee2e6 #fff;">Contact Me</a></li>
+        </ul>
+    </div>
+    <div class="container" id="Name" style="justify-content: center;display: flex;">
+        <h1 style="color: white;">Terrence Jake S. Cai</h1>
+    </div>
+
+    <div class="container" id="About" style="box-shadow: 3px 3px 0px 0px black;background-color: #bad5dc;">
+        <h1>About Me</h1>
+        <div id="containerAbout">
+            <div id="textdivid"></div>
+            <div id="chart_profile"><img height="250px" width="250px" src="profile.jpg"style="border-radius: 50%;"></div>
+        </div>
+    </div>
+
+    <div class="container" id="Education" style="box-shadow: 3px 3px 0px 0px black;background-color: #bad5dc;">
+         <button id="add" type ="button" data-toggle="modal" data-target="#EducModal"><i class="fas fa-plus"></i></button><h1>My Education Background</h1>
+       
+        <div class="modal" id="EducModal" data-keyboard="true" tabindex="-1">
+            <div class="mhead" stlye="padding:35px 50px;">
+                <h4>Add Education</h4>
+            </div>
+            <div class="mbody">
+                <form role="form" id="add-Education"class="Educform">
+                    <div><input type="text" id="Sname" placeholder="School Name"></div>
+                    <div><input type="text" id="Sdegree" placeholder="Degree"></div>
+                    <div><input type="text" id="Syear_start" placeholder="Year Started"></div>
+                    <div><input type="text" id="Syear_end" placeholder="Year Ended"></div>
+                    <button onclick="writeEduc()">Add School</button>
+                </form>
+            </div>
+        </div>
+ 
+        <div id="Educ-list"></div>
+        
+    </div>
+
+    <div class="container" id="Projects" style="box-shadow: 3px 3px 0px 0px black;background-color: #bad5dc;">
+        <button id="add" type ="button" data-toggle="modal" data-target="#ProjModal"><i class="fas fa-plus"></i></button><h1>My Projects</h1>
+        <div class="modal" id="ProjModal" data-keyboard="true" tabindex="-1">
+            <div class="mhead" stlye="padding:35px 50px;">
+               <h4>Add Project</h4>
+            </div>
+            <div class="mbody">
+                <form role="form" id="add-Org"class="Projform">
+                    <div><input type="text" id="Plink" placeholder="Project Link"></div>
+                    <div><input type="text" id="Pproj" placeholder="Project"></div>
+                    <div><input type="text" id="Pname" placeholder="Project Name"></div>
+                    <div><input type="text" id="Pyear_start" placeholder="Year Started"></div>
+                    <div><input type="text" id="Pyear_end" placeholder="Year Ended"></div>
+                    <button onclick="writeProj()">Add Project</button>
+                </form>
+            </div>
+        
+    </div>
+        <div id="Proj-list"></div>
+    </div>
+
+    <div class="container" id="Orgs" style="box-shadow: 3px 3px 0px 0px black;background-color: #bad5dc;">
+        <button id="add" type ="button" data-toggle="modal" data-target="#OrgModal"><i class="fas fa-plus"></i></button><h1>My Organizations</h1>
+        <div class="modal" id="OrgModal" data-keyboard="true" tabindex="-1">
+            <div class="mhead" stlye="padding:35px 50px;">
+               <h4>Add Organization</h4>
+            </div>
+            <div class="mbody">
+                <form role="form" id="add-Org"class="Orgform">
+                    <div><input type="text" id="Oname" placeholder="Organization Name"></div>
+                    <div><input type="text" id="Opos" placeholder="Position"></div>
+                    <div><input type="text" id="Oyear_start" placeholder="Year Started"></div>
+                    <div><input type="text" id="Oyear_end" placeholder="Year Ended"></div>
+                    <button onclick="writeOrg()">Add Organization</button>
+                </form>
+            </div>
+        </div>
+        <div id="Org-list"></div>
+    </div>
+
+    <div class="container" id="Contact" style="box-shadow: 3px 3px 0px 0px black;background-color: #bad5dc;">
+        <h1>Contact Me</h1>
+        <div id="cont-list">
+        </div>
+    </div>
+</div>
+    <script src="GetDocuments.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
