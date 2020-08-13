@@ -153,6 +153,12 @@ button#edit{
     display: none;
     margin-left: 20px;
 }
+
+.textsbox{
+    display: none;
+    margin-left: 20px;
+}
+
 .savebut{
     display: none;
     background-color:transparent;
@@ -161,6 +167,19 @@ button#edit{
 }
 
 .cancelbut{
+    display: none;
+    background-color:transparent;
+    border-radius: 15px 15px 15px 15px;
+    margin-left: 20px;
+}
+.savebutabout{
+    display: none;
+    background-color:transparent;
+    border-radius: 15px 15px 15px 15px;
+    margin-left: 20px;
+}
+
+.cancelbutabout{
     display: none;
     background-color:transparent;
     border-radius: 15px 15px 15px 15px;
